@@ -1,0 +1,95 @@
+body {
+  background-color: #232323;
+  margin: 0;
+  /*This removes the small gaps at the and side and the top and causes all objects in the body like the h1 and the whitestripe to go edge to edge*/
+  font-family: "Avenir";
+}
+
+#container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+#whiteStripe {
+  background-color: white;
+  height: 30px;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  background: steelblue;
+  margin: 0;
+  /* This gets rid of the small margins at the sides and causes the h1 to merge with the whitestripe. */
+  font-weight: normal;
+  /* Font weight refers to how bolded the text is. By default, h1 has a very high font weight. We can reduce this by setting it to normal*/
+  line-height: 1.1;
+  /* If there's too much gap between each lines, we can change line-height to fix it. Beware that this causes the header to be too close to neighbouring elements, which can be rememdied by adding padding to top and bottom */
+  padding-top: 20px 0;
+  transition: background 0.6s;
+  -webkit-transition: background 0.6s;
+  -moz-transition: background 0.6s;
+}
+
+h1 span {
+  font-size: 200%;
+  display: block;
+  /* This causes the span to be on the new line as compared to the h1 by generating it as a block element box */
+}
+
+.selected, button:hover {
+  background: steelblue;
+  color: white;
+}
+
+/* button:hover is the real easy way to make hovering effects. Much better than using eventlistener mouseover and mouseout.... */
+
+button {
+  border: none;
+  text-transform: uppercase;
+  background: none;
+  font-weight: 700;
+  font-style: inherit;
+  /* This makes the button take up the font size of the whiteStripe element*
+  letter-spacing: 1px;
+  color: steelblue;
+  /*This does not refer to the button color, but the font color*/
+  height: 100%;
+  /* height 100% causes it to adopt the 100% height of the whiteStripe element */
+  transition: all 0.3s;
+  -webkit-ransition: all 0.3s;
+  -moz-transition: all 0.3s;
+  /* This allows this slow mo transition effect when you hover
+  First argument is what do you want to show the transition, width, height, etc.
+  Second argument is how long to complete the transition */
+  outline: none;
+  /* When you click a button, there's an annoying blue outline. This removes it */
+}
+
+#statusMsg {
+  display: inline-block;
+  width: 20%
+  /* Using display inline-block helps to make the span into a block element
+  However, thats not enough. You need to give it a width so it can take up some space. */
+}
+
+.square {
+  width: 30%;
+  padding-bottom: 30%;
+  margin: 1.66%;
+  float: left;
+  border-radius: 10%;
+  /* Read up on border-radius on mdn, basically, it rounds edges of the square */
+  transition: background 0.6s;
+  -webkit-transition: background 0.6s;
+  -moz-transition: background 0.6s;
+}
+
+/* Thought process for making the grids Inside the HTML file, we have created 6 divs inside a container. Right now they aren't showing because they are empty.
+ 1. Add a background so we can see them on the page 2. Measure how much space will each one take: 3 squares per row, 2 rows in total. 3. A width of 30% for each square would total 90% of the real estate in a row. This 30% refers to 30% of the space of the parent class, which in this case is div class=container 4. Remember that padding is the amount of space between the text and the border. 5. To make them into squares, the padding should be similar to the width. padding-bottom: 30%. I don't know why padding bottom and how the 30% is calculated.
+ 6. The remaining 10% of real estate can be used as margins. How to calculate margins? 7. We calculate how many margins will be needed in total: 2 margins for leftmost and right most. In between two squares, there will be two margins as each square has its on margin. There are also two gaps. So 2+(2*2)=6 8. 10% equally divided by 6 is approx 1.66% 9. Lets add margin of 1.66% 10. Notice how they just go down in one straight line stacking with each other. We want them to stack to the left like gravity is to the left. So let's add float: left.
+ Done. 11. Now, notice that the 6 squares are using up the full real estate edge to edge. But we want to make it smaller so its easier for people to see all the colours at once. Remember that the width: 30% refers to 30% of the parent div, which is container. So let's set a limit to that div and center it.
+ To center an object, use margin: 0 auto;
+ The 0 refers to 0 margin for top and bottom. The auto refers to auto distribute the real estate for left and right. Since it auto distributes, it will center the div. */
